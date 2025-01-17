@@ -1,8 +1,7 @@
+
 <form method="post">
-    <label>
-        Username:
-        <input type="text" name="username" required />
-    </label>
+    <h1>Welcome to the chat app</h1>
+    <input type="text" name="username" required placeholder="Username" />
     <button type="submit">Go</button>
 </form>
 

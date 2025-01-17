@@ -1,7 +1,7 @@
 import type { RequestHandler } from "@sveltejs/kit";
 import { db } from "$lib/server/db";
 import { message, user } from "$lib/server/db/schema";
-import { desc, eq } from "drizzle-orm";
+import { asc, desc, eq } from "drizzle-orm";
 
 export const GET: RequestHandler = async () => {
     const messages = await db
@@ -11,7 +11,7 @@ export const GET: RequestHandler = async () => {
         })
         .from(message)
         .leftJoin(user, eq(message.userId, user.id))
-        .orderBy(desc(message.id));
+        .orderBy(asc(message.id));
 
     return new Response(JSON.stringify(messages), {
         headers: {
