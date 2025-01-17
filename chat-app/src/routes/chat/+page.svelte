@@ -6,7 +6,11 @@
 
 
 <div class="chat">
-    <Message msg="Hello" username = {username} />
+    <div class="msg">
+        <Message msg="Hello" username = {username} />
+        <Message msg="Hello" username = {"self"} />
+        <Message msg="Hello" username = {username} />
+    </div>
     <form class="send_msg">
         <input type="text" placeholder="Type your message..." />
         <button type="submit">Send</button>
@@ -16,6 +20,11 @@
 <style>
     *{
         box-sizing: border-box;
+    }
+    .msg{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
     .chat {
         display: flex;
@@ -30,7 +39,6 @@
         height: 100vh;
     }
     .send_msg {
-        /* position: absolute; */
         display: flex;
         align-self: flex-end;
         justify-self: flex-end;
@@ -38,7 +46,7 @@
         width: 100%;
         border: 2px solid #ccc;
         border-radius: 25px;
-        padding: 10px 0px 10px 10px;
+        padding: 10px 10px 10px 10px;
     }
     .send_msg input {
         width: 100%;
@@ -48,10 +56,6 @@
     }
 
     .send_msg button {
-        /* position: absolute; */
-        right: 0px;
-        top: 50%;
-        /* transform: translateY(-50%); */
         padding: 8px 15px;
         border: none;
         background-color: #4caf50;
